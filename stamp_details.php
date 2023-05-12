@@ -29,55 +29,55 @@ include('functions/common_functions.php');
 
 <body>
         <!-- navbar -->
-  <div class="container-fluid p-0">
+    <div class="container-fluid p-0">
     <!-- first child -->
     <nav class="navbar navbar-expand-lg bg-info">
-      <div class="container-fluid">
-        <img src="./images/logo.png" alt="" class="logo">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.php"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="display_all.php"><i class="fa-solid fa-envelopes-bulk"></i>Stamps</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fa fa-user" aria-hidden="true"></i>Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fa fa-phone" aria-hidden="true"></i>Contact Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Cart</a>
-            </li>
-          </ul>
-          <form class="d-flex" action="search_stamp.php" method="get">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
-            
-            <input type="submit" value="search" class="btn btn-outline-light" name="search_data_stamp">
-          </form>
+        <div class="container-fluid">
+            <img src="./images/logo.png" alt="" class="logo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.php"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="display_all.php"><i class="fa-solid fa-envelopes-bulk"></i>Stamps</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-user" aria-hidden="true"></i>Register</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-phone" aria-hidden="true"></i>Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Cart</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+            </div>
         </div>
-      </div>
     </nav>
-    <!-- calling cart function-->
+
+    <!-- calling cart function -->
     <?php
     cart();
     ?>
 <!-- second child -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-    <ul class="navbar-nav me-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Welcome Guest</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
-      </li>
-    </ul>
-  </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Welcome Guest</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+        </li>
+        </ul>
+</nav>
 
 <!-- third child -->
 <div class="bg-light">
@@ -91,21 +91,19 @@ Sri Lanka</p>
     <div class="col-md-10 ">
         <!-- stamps -->
         <div class="row">
-          
             <!-- fetching stamps -->
             <?php
             // calling function
-            getstamps();
-            //$ip = getIPAddress();
-            //echo 'User Real IP Address - '.$ip;
-
+            view_details();
+        
             ?>
-          
+        
 
             <!--row end -->
         </div>
         <!-- co end -->
     </div>
+
     
     
 

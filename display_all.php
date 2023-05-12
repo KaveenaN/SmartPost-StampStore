@@ -55,18 +55,13 @@ include('functions/common_functions.php');
               <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Cart</a>
             </li>
           </ul>
-          <form class="d-flex" action="search_stamp.php" method="get">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
-            
-            <input type="submit" value="search" class="btn btn-outline-light" name="search_data_stamp">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light" type="submit">Search</button>
           </form>
         </div>
       </div>
     </nav>
-    <!-- calling cart function-->
-    <?php
-    cart();
-    ?>
 <!-- second child -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
     <ul class="navbar-nav me-auto">
@@ -91,14 +86,10 @@ Sri Lanka</p>
     <div class="col-md-10 ">
         <!-- stamps -->
         <div class="row">
-          
             <!-- fetching stamps -->
             <?php
             // calling function
             getstamps();
-            //$ip = getIPAddress();
-            //echo 'User Real IP Address - '.$ip;
-
             ?>
           
 
@@ -106,6 +97,7 @@ Sri Lanka</p>
         </div>
         <!-- co end -->
     </div>
+ 
     
     
 

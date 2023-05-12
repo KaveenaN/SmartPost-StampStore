@@ -70,8 +70,8 @@
                     <button><a href="" class="nav-link text-light bg-info my-1">View Categories</a></button>
                     <button><a href="index.php?insert_search" class="nav-link text-light bg-info my-1">Insert Search</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">View Search</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">Insert Special Covers</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">View Special Covers</a></button>
+                    <button><a href="insert_stamps.php" class="nav-link text-light bg-info my-1">Insert Stamps</a></button>
+                    <button><a href="" class="nav-link text-light bg-info my-1">View Stamps</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">All Orders</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">All Payments</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">List Users</a></button>
@@ -82,7 +82,7 @@
     </div>
 
 <!-- fourth child-->
-<div class="container my-5">
+<div class="container my-3">
     <?php
     if(isset($_GET['insert_category'])){
         include('insert_categories.php');
@@ -100,7 +100,7 @@
         </div> 
 <!-- bootstrap js link -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
-     integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" 
-     crossorigin="anonymous"></script> 
+        integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" 
+        crossorigin="anonymous"></script> 
 </body>
 </html>
