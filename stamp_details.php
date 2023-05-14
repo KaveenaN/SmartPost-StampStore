@@ -52,8 +52,9 @@ include('functions/common_functions.php');
                     <a class="nav-link" href="#"><i class="fa fa-phone" aria-hidden="true"></i>Contact Us</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Cart</a>
+                    <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i><?php cart_item();?></a>
                     </li>
+                    <a class="nav-link" href="#">Total Price: <?php total_cart_price();?>/-</a>
                 </ul>
                 <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

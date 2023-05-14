@@ -1,7 +1,7 @@
 <?php
 
 // including connect file
-include('./includes/connect.php');
+
 
 //getting stamps
 function getstamps(){
@@ -10,12 +10,8 @@ function getstamps(){
     //condition to check isset or not
 
     
-    $select_query="select * from `stamps` order by rand()";
+    $select_query="select * from `stamps` order by rand() LIMIT 0,9";
             $result_query=mysqli_query($con,$select_query);
-            $num_of_rows=mysqli_num_rows($result_query);
-            if($num_of_rows==0){
-                echo "<h2 class='text-center text danger'> No results match.</h2>";
-            }
             while($row=mysqli_fetch_assoc($result_query)){
                 $stamp_id=$row['stamp_id'];
                 $stamp_title=$row['stamp_title'];
@@ -32,7 +28,7 @@ function getstamps(){
                     <div class='card-body'>
                         <h5 class='card-title'>$stamp_title</h5>
                         <p class='card-text'>$stamp_description</p> 
-                        <p class='card-text'>$stamp_price</p>
+                        <p class='card-text'>Price: $stamp_price/-</p>
                         <a href='index.php?add_to_cart=$stamp_id' class='btn btn-info'>Add to cart</a>
                         <a href='stamp_details.php?stamp_id=$stamp_id' class='btn btn-secondary'>View more</a>
                     </div>
@@ -90,7 +86,7 @@ function get_all_stamps(){
                         <div class='card-body'>
                             <h5 class='card-title'>$stamp_title</h5>
                             <p class='card-text'>$stamp_description</p>
-                            <p class='card-text'>$stamp_price</p>
+                            <p class='card-text'>Price: $stamp_price/-</p>
                             <a href='index.php?add_to_cart=$stamp_id' class='btn btn-info'>Add to cart</a>
                             <a href='stamp_details.php?stamp_id=$stamp_id' class='btn btn-secondary'>View more</a>
                         </div>
@@ -157,6 +153,7 @@ function search_stamp(){
             <div class='card-body'>
                 <h5 class='card-title'>$stamp_title</h5>
                 <p class='card-text'>$stamp_description</p>
+                <p class='card-text'>Price: $stamp_price/-</p>
                 <a href='index.php?add_to_cart=$stamp_id' class='btn btn-info'>Add to cart</a>
                 <a href='stamp_details.php?stamp_id=$stamp_id' class='btn btn-secondary'>View more</a>
             </div>
@@ -196,7 +193,7 @@ function view_details(){
                     <div class='card-body'>
                         <h5 class='card-title'>$stamp_title</h5>
                         <p class='card-text'>$stamp_description</p>
-                        <p class='card-text'>$stamp_price</p><p class='card-text'>$stamp_price</p>
+                        <p class='card-text'>Price: $stamp_price/-</p>
                         <a href='index.php?add_to_cart=$stamp_id' class='btn btn-info'>Add to cart</a>
                         <a href='index.php' class='btn btn-secondary'>GO home</a>
                     </div>
@@ -251,4 +248,41 @@ function cart()
     }
 }
 
+//function to get cart item  numbers
+function cart_item(){
+    if(isset($_GET['add_to_cart'])){
+        global $con;
+        $get_ip_add = getIPAddress();
+        $select_query="Select * from `cart_details` where ip_address='$get_ip_add'";
+        $result_query=mysqli_query($con,$select_query);
+        $count_cart_items=mysqli_num_rows($result_query);
+    }else{
+        global $con;
+        $get_ip_add = getIPAddress();
+        $select_query="Select * from `cart_details` where ip_address='$get_ip_add'";
+        $result_query=mysqli_query($con,$select_query);
+        $count_cart_items=mysqli_num_rows($result_query);
+    }
+    echo $count_cart_items;
+    }
+
+    //total price function
+    function total_cart_price(){
+        global $con;
+        $get_ip_add = getIPAddress();
+        $total_price = 0;
+        $cart_query = "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_add'";
+        $result = mysqli_query($con, $cart_query);
+        while($row = mysqli_fetch_array($result)){
+            $stamp_id = $row['stamp_id'];
+            $select_stamps = "SELECT * FROM `stamps` WHERE stamp_id='$stamp_id'";
+            $result_stamps = mysqli_query($con, $select_stamps);
+            while($row_stamp_price = mysqli_fetch_array($result_stamps)){
+                $stamp_price = $row_stamp_price['stamp_price']; 
+                $total_price += $stamp_price; 
+            }
+        }
+        echo $total_price;
+    }
+    
 ?>
